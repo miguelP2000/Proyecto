@@ -14,6 +14,36 @@ function cerrarSesion() {
     sessionStorage.clear();
 }
 
+function realizarCompra() {
+    if (!estaVacioCarrito()) {
+        Swal.fire({
+            title: 'Confirmar Compra',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, quiero comprar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Compra confirmada!',
+                    'Tu compra ha sido realizada.',
+                    'success'
+                )
+                let cedula = sessionStorage.getItem("Login Actual");
+                let arrCliente = JSON.parse(localStorage.getItem(cedula));
+                let arrNuevo = [];
+                arrCliente[1] = arrNuevo
+                localStorage.setItem(cedula, JSON.stringify(arrCliente));
+                eliminarTablaCarrito();
+                totalPagar();
+            }
+        })
+    } else {
+        Swal.fire('No hay productos en el carrito')
+    }
+}
+
 function crearProductos(arrProductos) {
     let productArea = document.getElementById("content")
     arrProductos.forEach(aux => {
@@ -112,6 +142,25 @@ function eliminarProducto(id) {
         title: 'Se ha eliminado',
         timer: 1500,
     });
+}
+
+function eliminarTablaCarrito() {
+    var tableHeaderRowCount = 1;
+    var table = document.getElementById('miTabla');
+    var rowCount = table.rows.length;
+    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+        table.deleteRow(tableHeaderRowCount);
+    }
+}
+
+function estaVacioCarrito() {
+    let cedula = sessionStorage.getItem("Login Actual");
+    let arr = JSON.parse(localStorage.getItem(cedula))[1];
+    if (!arr[0]) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function modificarCantidad(id) {
