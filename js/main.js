@@ -1,7 +1,7 @@
 debugger
 var arrProductos = [];
 
-fetch('./js/productos.json')
+fetch('../js/productos.json')
     .then((respuesta) => respuesta.json())
     .then((data) => {
         arrProductos = data;
