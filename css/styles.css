@@ -1,0 +1,55 @@
+#content {
+    margin-top: 5em;
+    display: grid;
+    margin: auto;
+    width: 90%;
+    margin-top: 70px;
+    margin-bottom: 150px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+.table {
+    margin-bottom: 50px !important;
+}
+
+#monto {
+    padding: 5px;
+    color: #000;
+    margin-bottom: 50px !important;
+    margin-top: 50px !important;
+    margin: 5px;
+    float: left;
+}
+
+#total {
+    margin: 200px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    float: left;
+}
+
+#titulo-principal {
+    margin-bottom: 5px;
+    margin-top: 25px;
+    text-align: center;
+    color: #1a2537;
+    font-size: 40px;
+}
+
+#cierraSesion {
+    margin: 16px;
+    margin-top: 41px;
+}
+
+.centrar {
+    padding-top: 20px !important;
+}
+
+.centrar-boton {
+    padding-top: 16px !important;
+}
+
+.carta {
+    border: 2px #F7F6F6 solid;
+}
