@@ -1,3 +1,4 @@
+debugger
 var arrProductos = [];
 
 fetch('./js/productos.json')
