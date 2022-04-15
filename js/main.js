@@ -1,15 +1,14 @@
-debugger
 var arrProductos = [];
 
 fetch('./../js/productos.json')
     .then((respuesta) => respuesta.json())
     .then((data) => {
         arrProductos = data;
+        crearProductos(arrProductos);
+        actualizarCarrito();
     })
 
-crearProductos(arrProductos);
 
-actualizarCarrito();
 
 function cerrarSesion() {
     sessionStorage.clear();
