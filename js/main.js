@@ -1,3 +1,5 @@
+validarSesion();
+
 var arrProductos = [];
 
 fetch('./../js/productos.json')
@@ -9,6 +11,11 @@ fetch('./../js/productos.json')
     })
 
 
+function validarSesion() {
+    if (sessionStorage.length == 0) {
+        location.href = 'login.html';
+    }
+}
 
 function cerrarSesion() {
     sessionStorage.clear();
